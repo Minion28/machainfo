@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:machainfo/collapse.dart';
 import 'package:machainfo/colors.dart';
-import 'package:machainfo/homepage.dart';
-import 'package:machainfo/about.dart';
+import 'package:machainfo/five.dart';
+import 'package:machainfo/four.dart';
+import 'package:machainfo/one.dart';
+import 'package:machainfo/three.dart';
+import 'package:machainfo/two.dart';
 
 
 
@@ -25,17 +30,21 @@ class MainPage extends StatefulWidget {
 class _MainState extends State<MainPage> {
   int index = 0;
   final screens = [
-    const HomePage(),
-    const About(),
+    const One(),
+    const Two(),
+    const Three(),
+    const Four(),
+    const Five()
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: dt,
+      endDrawer: const Collapse(),
       body: screens[index],
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
-          indicatorColor: green,
+          indicatorColor: blue,
           labelTextStyle: MaterialStateProperty.all(
             const TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: bg),),
         ),
@@ -46,13 +55,26 @@ class _MainState extends State<MainPage> {
           onDestinationSelected: (index) => setState(() => this.index = index),
           destinations: const [
             NavigationDestination(
-                icon: Icon(Icons.home, color: bg,),
-                selectedIcon: Icon(Icons.home_filled, color: bg,),
-                label: 'Home'),
+                icon: FaIcon(FontAwesomeIcons.one, color: bg,),
+                selectedIcon: FaIcon(FontAwesomeIcons.diceOne, color: bg,),
+                label: 'One'),
             NavigationDestination(
-                icon: Icon(Icons.api, color: bg,),
-                selectedIcon: Icon(Icons.api_sharp, color: bg,),
-                label: 'About'),
+                icon: FaIcon(FontAwesomeIcons.two, color: bg,),
+                selectedIcon: FaIcon(FontAwesomeIcons.diceTwo, color: bg,),
+                label: 'Two'),
+            NavigationDestination(
+                icon: FaIcon(FontAwesomeIcons.three, color: bg,),
+                selectedIcon: FaIcon(FontAwesomeIcons.diceThree, color: bg,),
+                label: 'Three'),
+            NavigationDestination(
+                icon: FaIcon(FontAwesomeIcons.four, color: bg,),
+                selectedIcon: FaIcon(FontAwesomeIcons.diceFour, color: bg,),
+                label: 'Four'),
+            NavigationDestination(
+                icon: FaIcon(FontAwesomeIcons.five,
+                color: bg,),
+                selectedIcon: FaIcon(FontAwesomeIcons.diceFive, color: bg,),
+                label: 'Five'),
           ],
         ),
 
@@ -68,7 +90,6 @@ class _MainState extends State<MainPage> {
             )
           ),
         ),
-        //leading: Image.asset('images/logo.png'),
         backgroundColor: dt,
         elevation: 0,
         title: SizedBox(
@@ -79,13 +100,6 @@ class _MainState extends State<MainPage> {
             child: Image.asset('lib/assets/images/logo.png'),
           ),
     ),
-        actions: const [
-
-          Icon(Icons.search,
-          size: 30.0,),
-          Icon(Icons.more_vert,
-          size: 30.0,)
-        ],
       ),
     );
   }
