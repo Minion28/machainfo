@@ -3,15 +3,14 @@ import 'colors.dart';
 import 'package:http/http.dart' as http;
 import 'package:html/dom.dart' as dom;
 
-class About extends StatefulWidget {
-  const About({Key? key}) : super(key: key);
-
+class Two extends StatefulWidget {
+  const Two({Key? key}) : super(key: key);
 
   @override
-  State<About> createState() => _AboutState();
+  State<Two> createState() => _TwoState();
 }
-class _AboutState extends State<About> {
 
+class _TwoState extends State<Two> {
   List<String> titles = [];
   List<String?> urlImages = [];
 
@@ -51,7 +50,9 @@ class _AboutState extends State<About> {
           padding: const EdgeInsets.all(12),
           itemCount: titles.length,
           separatorBuilder: (context, index) {
-            return const SizedBox(height: 12,);
+            return const SizedBox(
+              height: 12,
+            );
           },
           itemBuilder: (context, index) {
             final title = titles[index];
@@ -62,22 +63,14 @@ class _AboutState extends State<About> {
                 ClipRRect(
                   borderRadius: const BorderRadius.all(Radius.circular(20)),
                   child: Image.network(urlImage ?? '',
-                    width: double.infinity,
-                    height: 200,
-                    fit: BoxFit.cover),
+                      width: double.infinity, height: 200, fit: BoxFit.cover),
                 ),
-                Text(title,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold
-                  )
-                ),
+                Text(title.toUpperCase(),
+                    style: const TextStyle(fontWeight: FontWeight.bold)),
                 const SizedBox(height: 14),
-
               ],
             );
           },
-        )
-    );
+        ));
   }
-
 }
