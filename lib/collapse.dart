@@ -11,6 +11,7 @@ final Uri linkedin = Uri.parse('https://www.linkedin.com/in/kelvin-wambua-7b003a
 final Uri instagram = Uri.parse('https://www.instagram.com/_.wambua._/');
 final Uri twitter = Uri.parse('https://twitter.com/kelvinwambua11?t=Pmm3Z6KhiHkOoGLDf2W3Jw&s=09');
 final Uri slack = Uri.parse('https://join.slack.com/shareDM/zt-1tl9j53sw-RycKTj~92ph_eQV1CC_kMw');
+
 class Collapse extends StatelessWidget {
   const Collapse({Key? key}) : super(key: key);
 

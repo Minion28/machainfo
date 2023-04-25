@@ -7,6 +7,7 @@ import 'package:machainfo/four.dart';
 import 'package:machainfo/one.dart';
 import 'package:machainfo/three.dart';
 import 'package:machainfo/two.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 
 
@@ -97,7 +98,8 @@ class _MainState extends State<MainPage> {
           width: 40,
           child: SizedBox.fromSize(
             size: const Size.fromRadius(200),
-            child: Image.asset('lib/assets/images/logo.png'),
+            child: GestureDetector(
+                onTap:()=> launchUrlString('https://machakos.go.ke'),child: Image.asset('lib/assets/images/logo.png',)),
           ),
     ),
       ),
