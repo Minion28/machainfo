@@ -11,6 +11,7 @@ class One extends StatefulWidget {
 }
 
 class _OneState extends State<One> {
+  //method to fetch the titles and images
   List<String> titles = [];
   List<String?> urlImages = [];
 
@@ -22,15 +23,18 @@ class _OneState extends State<One> {
   }
 
   Future getWebsiteData() async {
+    //http package to load website data
     final url = Uri.parse('https://machakos.go.ke/');
     final response = await http.get(url);
     dom.Document html = dom.Document.html(response.body);
 
+    //selectors for the titles in the html source code
     final titles = html
         .querySelectorAll('div.elementor-post__text > h3 > a')
         .map((element) => element.innerHtml.trim())
         .toList();
 
+    //selectors for the images in the source code
     final urlImages = html
         .querySelectorAll('a > div > img')
         .map((element) => element.attributes['src']!)
@@ -58,6 +62,7 @@ class _OneState extends State<One> {
             final urlImage = urlImages[index];
             final title = titles[index];
 
+            //display the title and image from the website to the application
             return Column(
               children: [
                 ClipRRect(
