@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:machainfo/collapse.dart';
 import 'package:machainfo/colors.dart';
@@ -11,14 +12,12 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 
 
-void main() => {
-  runApp(
+void main() => runApp(
       const MaterialApp(
         debugShowCheckedModeBanner: false,
         home: MainPage()
         ),
-  ),
-};
+  );
 
 
 class MainPage extends StatefulWidget {
@@ -40,47 +39,60 @@ class _MainState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: dt,
+      backgroundColor: white,
       endDrawer: const Collapse(),
       body: screens[index],
-      bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(
-          indicatorColor: blue,
-          labelTextStyle: MaterialStateProperty.all(
-            const TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: dt),),
+      bottomNavigationBar: ClipRRect(
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(30.0),
+          topRight: Radius.circular(30.0),
+          bottomLeft: Radius.circular(30.0),
+          bottomRight: Radius.circular(30.0),
         ),
-        child: NavigationBar(
-          height: 60,
-          backgroundColor: bg,
-          selectedIndex: index,
-          onDestinationSelected: (index) => setState(() => this.index = index),
-          destinations: const [
-            NavigationDestination(
-                icon: FaIcon(FontAwesomeIcons.one, color: dt,),
-                selectedIcon: FaIcon(FontAwesomeIcons.diceOne, color: dt,),
-                label: 'One'),
-            NavigationDestination(
-                icon: FaIcon(FontAwesomeIcons.two, color: dt,),
-                selectedIcon: FaIcon(FontAwesomeIcons.diceTwo, color: dt,),
-                label: 'Two'),
-            NavigationDestination(
-                icon: FaIcon(FontAwesomeIcons.three, color: dt,),
-                selectedIcon: FaIcon(FontAwesomeIcons.diceThree, color: dt,),
-                label: 'Three'),
-            NavigationDestination(
-                icon: FaIcon(FontAwesomeIcons.four, color: dt,),
-                selectedIcon: FaIcon(FontAwesomeIcons.diceFour, color: dt,),
-                label: 'Four'),
-            NavigationDestination(
-                icon: FaIcon(FontAwesomeIcons.five,
-                color: dt,),
-                selectedIcon: FaIcon(FontAwesomeIcons.diceFive, color: dt,),
-                label: 'Five'),
-          ],
-        ),
+        child: NavigationBarTheme(
+          data: NavigationBarThemeData(
+            indicatorColor: white,
+            labelTextStyle: MaterialStateProperty.all(
+              const TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: dt),),
+          ),
+          child: NavigationBar(
+            height: 60,
+            backgroundColor: bg,
+            selectedIndex: index,
+            onDestinationSelected: (index) => setState(() => this.index = index),
+            destinations: const [
+              NavigationDestination(
+                  icon: FaIcon(FontAwesomeIcons.one, color: dt,),
+                  selectedIcon: FaIcon(FontAwesomeIcons.diceOne, color: dt,),
+                  label: 'One'),
+              NavigationDestination(
+                  icon: FaIcon(FontAwesomeIcons.two, color: dt,),
+                  selectedIcon: FaIcon(FontAwesomeIcons.diceTwo, color: dt,),
+                  label: 'Two'),
+              NavigationDestination(
+                  icon: FaIcon(FontAwesomeIcons.three, color: dt,),
+                  selectedIcon: FaIcon(FontAwesomeIcons.diceThree, color: dt,),
+                  label: 'Three'),
+              NavigationDestination(
+                  icon: FaIcon(FontAwesomeIcons.four, color: dt,),
+                  selectedIcon: FaIcon(FontAwesomeIcons.diceFour, color: dt,),
+                  label: 'Four'),
+              NavigationDestination(
+                  icon: FaIcon(FontAwesomeIcons.five,
+                  color: dt,),
+                  selectedIcon: FaIcon(FontAwesomeIcons.diceFive, color: dt,),
+                  label: 'Five'),
+            ],
+          ),
 
+        ),
       ),
       appBar: AppBar(
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: white,
+          statusBarBrightness: Brightness.light,
+          statusBarIconBrightness: Brightness.dark
+        ),
         iconTheme: const IconThemeData(color: dt),
         primary: true,
         flexibleSpace: Container(
@@ -88,7 +100,7 @@ class _MainState extends State<MainPage> {
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.topRight,
-              colors: <Color>[bg, bg],
+              colors: <Color>[white, white],
             )
           ),
         ),

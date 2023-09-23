@@ -45,7 +45,7 @@ class _FiveState extends State<Five> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: bg,
+        backgroundColor: white,
         body: ListView.separated(
           padding: const EdgeInsets.all(12),
           itemCount: titles.length,

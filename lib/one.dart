@@ -49,7 +49,7 @@ class _OneState extends State<One> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: bg,
+        backgroundColor: white,
         body: ListView.separated(
           padding: const EdgeInsets.all(12),
           itemCount: titles.length,

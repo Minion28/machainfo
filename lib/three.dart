@@ -45,7 +45,7 @@ class _ThreeState extends State<Three> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: bg,
+        backgroundColor: white,
         body: ListView.separated(
           padding: const EdgeInsets.all(12),
           itemCount: titles.length,
