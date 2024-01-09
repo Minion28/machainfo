@@ -45,7 +45,7 @@ class _TwoState extends State<Two> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: white,
+        backgroundColor: Theme.of(context).colorScheme.background,
         body: ListView.separated(
           padding: const EdgeInsets.all(12),
           itemCount: titles.length,
@@ -66,7 +66,8 @@ class _TwoState extends State<Two> {
                       width: double.infinity, height: 200, fit: BoxFit.cover),
                 ),
                 Text(title.toUpperCase(),
-                    style: const TextStyle(fontWeight: FontWeight.bold)),
+                    style: TextStyle(fontWeight: FontWeight.bold,
+                    color: Theme.of(context).colorScheme.primary)),
                 const SizedBox(height: 14),
               ],
             );

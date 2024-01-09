@@ -6,6 +6,8 @@ import 'package:machainfo/colors.dart';
 import 'package:machainfo/five.dart';
 import 'package:machainfo/four.dart';
 import 'package:machainfo/one.dart';
+import 'package:machainfo/themes/dark.dart';
+import 'package:machainfo/themes/light.dart';
 import 'package:machainfo/three.dart';
 import 'package:machainfo/two.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -13,9 +15,11 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 
 void main() => runApp(
-      const MaterialApp(
+       MaterialApp(
+          theme: lighttheme,
+          darkTheme: darktheme,
         debugShowCheckedModeBanner: false,
-        home: MainPage()
+        home: const MainPage()
         ),
   );
 
@@ -39,7 +43,7 @@ class _MainState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
+      backgroundColor: Theme.of(context).colorScheme.background,
       endDrawer: const Collapse(),
       body: screens[index],
       bottomNavigationBar: ClipRRect(
@@ -51,36 +55,36 @@ class _MainState extends State<MainPage> {
         ),
         child: NavigationBarTheme(
           data: NavigationBarThemeData(
-            indicatorColor: white,
+            indicatorColor: Theme.of(context).colorScheme.background,
             labelTextStyle: MaterialStateProperty.all(
-              const TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: dt),),
+               TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Theme.of(context).colorScheme.secondary),),
           ),
           child: NavigationBar(
             height: 60,
-            backgroundColor: bg,
+            backgroundColor: Theme.of(context).colorScheme.background,
             selectedIndex: index,
             onDestinationSelected: (index) => setState(() => this.index = index),
-            destinations: const [
+            destinations: [
               NavigationDestination(
-                  icon: FaIcon(FontAwesomeIcons.one, color: dt,),
-                  selectedIcon: FaIcon(FontAwesomeIcons.diceOne, color: dt,),
+                  icon:  FaIcon(FontAwesomeIcons.one, color: Theme.of(context).colorScheme.secondary,),
+                  selectedIcon: FaIcon(FontAwesomeIcons.diceOne, color: Theme.of(context).colorScheme.secondary),
                   label: 'One'),
-              NavigationDestination(
-                  icon: FaIcon(FontAwesomeIcons.two, color: dt,),
-                  selectedIcon: FaIcon(FontAwesomeIcons.diceTwo, color: dt,),
+               NavigationDestination(
+                  icon: FaIcon(FontAwesomeIcons.two, color: Theme.of(context).colorScheme.secondary,),
+                  selectedIcon: FaIcon(FontAwesomeIcons.diceTwo, color: Theme.of(context).colorScheme.secondary,),
                   label: 'Two'),
-              NavigationDestination(
-                  icon: FaIcon(FontAwesomeIcons.three, color: dt,),
-                  selectedIcon: FaIcon(FontAwesomeIcons.diceThree, color: dt,),
+               NavigationDestination(
+                  icon: FaIcon(FontAwesomeIcons.three, color: Theme.of(context).colorScheme.secondary,),
+                  selectedIcon: FaIcon(FontAwesomeIcons.diceThree, color: Theme.of(context).colorScheme.secondary,),
                   label: 'Three'),
-              NavigationDestination(
-                  icon: FaIcon(FontAwesomeIcons.four, color: dt,),
-                  selectedIcon: FaIcon(FontAwesomeIcons.diceFour, color: dt,),
+               NavigationDestination(
+                  icon: FaIcon(FontAwesomeIcons.four, color: Theme.of(context).colorScheme.secondary,),
+                  selectedIcon: FaIcon(FontAwesomeIcons.diceFour, color: Theme.of(context).colorScheme.secondary,),
                   label: 'Four'),
-              NavigationDestination(
+               NavigationDestination(
                   icon: FaIcon(FontAwesomeIcons.five,
-                  color: dt,),
-                  selectedIcon: FaIcon(FontAwesomeIcons.diceFive, color: dt,),
+                  color: Theme.of(context).colorScheme.secondary,),
+                  selectedIcon: FaIcon(FontAwesomeIcons.diceFive, color: Theme.of(context).colorScheme.background,),
                   label: 'Five'),
             ],
           ),
@@ -88,23 +92,23 @@ class _MainState extends State<MainPage> {
         ),
       ),
       appBar: AppBar(
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarColor: white,
-          statusBarBrightness: Brightness.light,
-          statusBarIconBrightness: Brightness.dark
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: Theme.of(context).colorScheme.background,
+          statusBarBrightness: Brightness.dark,
+          statusBarIconBrightness: Brightness.light
         ),
-        iconTheme: const IconThemeData(color: dt),
+        iconTheme: IconThemeData(color: Theme.of(context).colorScheme.secondary),
         primary: true,
         flexibleSpace: Container(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.topRight,
-              colors: <Color>[white, white],
+              colors: <Color>[Theme.of(context).colorScheme.secondary, Theme.of(context).colorScheme.background],
             )
           ),
         ),
-        backgroundColor: dt,
+        backgroundColor: Theme.of(context).colorScheme.background,
         elevation: 0,
         title: SizedBox(
           height: 40,

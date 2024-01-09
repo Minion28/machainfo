@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:machainfo/colors.dart';
 
 ThemeData lighttheme = ThemeData(
   appBarTheme: const AppBarTheme(
@@ -9,9 +10,9 @@ ThemeData lighttheme = ThemeData(
 
     brightness: Brightness.light,
       colorScheme: const ColorScheme.light(
-      background: Colors.white,
-      primary: Colors.black54,
-        secondary: Colors.black,
+      background: white,
+      primary: dt,
+        secondary: dt,
   ),
 
 );

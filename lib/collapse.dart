@@ -6,7 +6,6 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 final Uri url = Uri.parse('https://github.com/Minion28');
 final Uri mail = Uri.parse('https://github.com/Minion28');
-final Uri whatsapp = Uri.parse('https://wa.me/qr/EGSZ4USP2ZQNL1');
 final Uri linkedin = Uri.parse('https://www.linkedin.com/in/kelvin-wambua-7b003a226/');
 final Uri instagram = Uri.parse('https://www.instagram.com/_.wambua._/');
 final Uri twitter = Uri.parse('https://twitter.com/kelvinwambua11?t=Pmm3Z6KhiHkOoGLDf2W3Jw&s=09');
@@ -73,7 +72,7 @@ class Collapse extends StatelessWidget {
           ListTile(
             leading:  IconButton(
               onPressed:() {
-                launchUrl(whatsapp);
+                launchUrlString('https://wa.me/+254718128724?text=');
               },
               icon: const FaIcon(FontAwesomeIcons.whatsapp,
                 color: green,),
@@ -83,7 +82,7 @@ class Collapse extends StatelessWidget {
                   color: bg
               ),),
             onTap: () {
-              launchUrl(whatsapp);
+              launchUrlString("https://wa.me/+254718128724?text=");
             },
 
           ),

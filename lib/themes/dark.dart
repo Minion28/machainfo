@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:machainfo/colors.dart';
 
 ThemeData darktheme = ThemeData(
     appBarTheme: const AppBarTheme(
         iconTheme: IconThemeData(
-            color: Colors.white
+            color: white
         )
     ),
   brightness: Brightness.dark,
   colorScheme: const ColorScheme.dark(
-    background: Colors.black,
-    primary: Colors.white70,
-    secondary: Colors.white,
+    background: dt,
+    primary: white,
+    secondary: white,
 
 
   )
